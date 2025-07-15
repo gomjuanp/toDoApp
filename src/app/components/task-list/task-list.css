@@ -1,0 +1,46 @@
+*{
+    background-color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.full-list{
+    margin: 0 45px; 
+}
+button, img{
+    right: 0;
+    width: 140px;
+    height: 80px;
+    border-radius: 50px;
+}
+img{
+    padding-left: -20px;
+}
+
+.eachtask{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 0 -250px;
+    font-weight: bold;
+
+}
+
+.task-important{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: space-between;
+}
+
+.task-desc{
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 75%;
+}
+
+h3{
+    margin-left: 45px; 
+}
+mat-card{
+    border: none;
+}

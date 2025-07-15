@@ -1,0 +1,47 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="form-info">
+
+    <strong  class="name">Task Name</strong>
+    <input class="inputs" matInput formControlName="name" >
+    <span *ngIf="!taskForm.get('name')!.valid &&taskForm.get('name')!.touched">
+                
+        Task Name is required
+        
+    </span>
+    
+    <br>
+    
+    <strong class="name">Start Date</strong>
+    <input class="inputs" formControlName="startDate" type="date">
+    <span *ngIf="!taskForm.get('startDate')!.valid && taskForm.get('startDate')!.touched">
+
+        Start Date is required
+        
+    </span>
+
+    <br>
+    
+
+
+    <strong class="name">Deadline</strong>
+    <input class="inputs" formControlName="deadline" type="date" placeholder="Deadline">
+    <span *ngIf="!taskForm.get('deadline')!.valid && taskForm.get('deadline')!.touched">
+        
+        Deadline is required
+        
+    </span>
+
+    <br>
+
+    <strong class="name">Description</strong>
+    <textarea  formControlName="description"></textarea>
+
+    <br>
+
+    <div class="button-div">
+
+        <button type="submit" [disabled]="!taskForm.valid">Add Task</button>
+        <button type="reset" [disabled]="!taskForm.touched">Clear</button>
+
+    </div>
+
+</form>

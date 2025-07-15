@@ -1,0 +1,48 @@
+<span *ngIf="UserTasks.length > 0">
+
+    <mat-card class="full-list">
+
+    <mat-card-content>
+
+        <mat-list *ngFor="let task of UserTasks">
+
+            <mat-card >
+
+                <mat-card-header class="eachtask">
+
+                    <p>{{task.name}}</p>
+                    <p>{{task.startDate | date}}</p>
+                    <p>{{task.deadline | date}}</p>
+
+                </mat-card-header>
+                <div class="task-important">
+
+                    <mat-card-content class="task-desc">
+
+                        <p>{{task.description}}</p>
+                        <span *ngIf="task.description == '' ">There is no Description for this task</span>
+
+                    </mat-card-content>
+                    <mat-card-footer class="trash_can">
+                        
+                        <button (click)="this.taskService.deleteTask(task.id)"><img src="/img/trash_can.png" alt=""></button>
+                        
+                    </mat-card-footer>
+
+                </div>
+                
+
+            </mat-card>
+
+        </mat-list>
+
+    </mat-card-content>
+
+</mat-card>
+
+</span>
+<span class="noTask" *ngIf="UserTasks.length === 0">
+    <h3>
+        Well Done. There is no more task to display.
+    </h3>
+</span>
