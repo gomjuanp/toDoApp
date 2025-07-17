@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class Footer {
-    copied = false;
+  // Function to copy email address to clipboard
+  copied = false;
 
   copyEmail() {
   navigator.clipboard.writeText('gomjuan@sheridancollege.ca');
   this.copied = true;
-  setTimeout(() => this.copied = false, 500)
-}
-
+  setTimeout(() => this.copied = false, 500);
+  }
 
 }

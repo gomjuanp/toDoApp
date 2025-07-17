@@ -1,46 +1,67 @@
+<!-- Display the tasks -->
 <span *ngIf="UserTasks.length > 0">
 
+    <!-- Card to display the tasks -->
     <mat-card class="full-list">
 
-    <mat-card-content>
+        <!-- List of tasks -->
+        <mat-card-content>
 
-        <mat-list *ngFor="let task of UserTasks">
+            <!-- Each task -->
+            <mat-list *ngFor="let task of UserTasks">
 
-            <mat-card >
+                <!-- Card for each task -->
+                <mat-card >
 
-                <mat-card-header class="eachtask">
+                    <!-- Task information -->
+                    <mat-card-header>
 
-                    <p>{{task.name}}</p>
-                    <p>{{task.startDate | date}}</p>
-                    <p>{{task.deadline | date}}</p>
+                        <!-- Task name, start date and deadline -->
+                        <div class="eachTask">
 
-                </mat-card-header>
-                <div class="task-important">
+                            <p>{{task.name}}</p>
+                            <p>{{task.startDate | date}}</p>
+                            <p>{{task.deadline | date}}</p>
 
-                    <mat-card-content class="task-desc">
+                        </div>
 
-                        <p>{{task.description}}</p>
-                        <span *ngIf="task.description == '' ">There is no Description for this task</span>
+                    </mat-card-header>
 
-                    </mat-card-content>
-                    <mat-card-footer class="trash_can">
-                        
-                        <button (click)="this.taskService.deleteTask(task.id)"><img src="/img/trash_can.png" alt=""></button>
-                        
-                    </mat-card-footer>
+                    <!-- Task description and delete button -->
+                    <div class="task-important">
 
-                </div>
-                
+                        <!-- Task description -->
+                        <mat-card-content class="task-desc">
 
-            </mat-card>
+                            <p>{{task.description}}</p>
+                            <span *ngIf="task.description == '' || task.description == null">
+                                
+                                There is no Description for this task
+                            
+                            </span>
 
-        </mat-list>
+                        </mat-card-content>
 
-    </mat-card-content>
+                        <!-- Delete button -->
+                        <mat-card-footer class="trash_can">
+                            
+                            <button (click)="this.taskService.deleteTask(task.id)"><img src="/img/trash_can.png" alt=""></button>
+                            
+                        </mat-card-footer>
 
-</mat-card>
+                    </div>
+
+                </mat-card>
+
+            </mat-list>
+
+        </mat-card-content>
+
+    </mat-card>
 
 </span>
+
+<!-- Message when there are no tasks -->
 <span class="noTask" *ngIf="UserTasks.length === 0">
     <h3>
         Well Done. There is no more task to display.

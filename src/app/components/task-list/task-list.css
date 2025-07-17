@@ -1,46 +1,65 @@
 *{
-    background-color: white;
-    border: none;
-    box-shadow: none;
+    background-color: white !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .full-list{
-    margin: 0 45px; 
-}
-button, img{
-    right: 0;
-    width: 140px;
-    height: 80px;
-    border-radius: 50px;
-}
-img{
-    padding-left: -20px;
-}
-
-.eachtask{
+    margin: 0 45px;
     display: flex;
-    justify-content: space-around;
-    margin: 0 0 0 -250px;
-    font-weight: bold;
+    flex-direction: column;
+}
 
+.eachTask{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.noTask{
+    display: flex;
+    margin: 10px 45px;
 }
 
 .task-important{
     display: flex;
     flex-direction: row;
-    width: auto;
+    width: 100%;
     justify-content: space-between;
 }
 
 .task-desc{
-    border: 2px solid black;
-    border-radius: 12px;
     width: 75%;
+    text-align: left;
+    border: 2px solid black !important;
+    border-radius: 12px;
+    padding: 10px;
 }
 
-h3{
-    margin-left: 45px; 
+.trash_can, img{
+    width: 80px;
 }
-mat-card{
-    border: none;
+
+@media screen and (max-width: 768px){
+
+    .full-list{
+        margin: 0 5px;
+    }
+
+    .eachTask{
+        flex-wrap: wrap;
+    }
+
+    .noTask{
+        margin: 10px 5px;
+    }
+
+    .trash_can, img{
+        width: 80px;
+    }
+
+    .noTask{
+        margin: 10px 5px;
+    }
 }

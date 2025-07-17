@@ -12,15 +12,12 @@ export class TaskList {
 
   constructor( public taskService: TaskService){}
 
+  // Array to store the tasks
   UserTasks!: Task[];
 
-  TaskEdit: boolean = false;
-
-  
-
+  // When the component is initialized, the UserTasks array is updated
   ngOnInit(){
     this.UserTasks = this.taskService.getTasks();
-    console.log(this.UserTasks[0])
   }
 
 }

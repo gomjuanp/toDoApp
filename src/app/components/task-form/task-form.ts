@@ -29,7 +29,8 @@ export class TaskForm {
     });
   }
   
-  
+  // Span to display the success message
+  successMessage: boolean = false;
 
   //When submitting the form, the task is created and added to the task service
   onSubmit() {
@@ -44,6 +45,7 @@ export class TaskForm {
     description: this.taskForm.value.description
   };
 
+  // Try to add the task to the task service
   try {
     this.taskService.addNewtask(NewTask);
   } catch (error) {
@@ -51,9 +53,17 @@ export class TaskForm {
     console.log('Status 500: internal server error.');
     this.taskForm.reset();
   } finally {
+    // Update the UserTask list
     this.UserTasks = this.taskService.getTasks();
     console.log('Status 200: OK');
     this.taskForm.reset();
+    
+    // Display the success message for 1 second
+    this.successMessage = true;
+    setTimeout(() => {
+      this.successMessage = false;
+    }, 1000);
+
   }
 }
 

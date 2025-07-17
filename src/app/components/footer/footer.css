@@ -1,19 +1,36 @@
-*{
-text-decoration: none !important;
-}
-
 h2 {
     margin: 0 45px 0 45px;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 32px;
 }
+
 .information {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     margin: 0 45px 0 45px;
 }
+
+.copied-message {
+  margin-left: 10px;
+  color: #0858ec;
+  font-size: 15px;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+a, .email{
+    text-decoration: none;
+    font-weight: bold;
+    color: #0858ec;
+    cursor: pointer;
+}
+a:hover, .email:hover {
+    text-decoration: underline solid #0858ec 3px;
+    text-decoration-skip-ink: none;
+}
+
 
 mat-card{
     width: 80px;
@@ -38,26 +55,25 @@ mat-card{
     height: 150px;
 }
 
-.email {
-  cursor: pointer;
-  color: rgb(66, 132, 255);
-  text-decoration: underline;
-}
-
-a{
-color: rgb(66, 132, 255);
-
-}
-
-.copied-message {
-  margin-left: 10px;
-  color: green;
-  font-size: 15px;
-  font-weight: bold;
-  transition: opacity 0.3s;
-}
-
 .sheridan-banner{
     width: 270px;
     height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    h2{
+        margin: 0 5px;
+    }
+
+    .information {
+        flex-direction: column;
+        align-items: center;
+    }
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sheridan-banner {
+        max-width: 100%;
+    }
 }
